@@ -265,7 +265,9 @@ class CandidateRegistration(generic.ListView):
             test_obj = Test.objects.get(test_name=test_name_on.test_name)
             return render(request, self.template_name, {'form': form,'test_obj': test_obj})
         else:
-            raise PermissionDenied
+            # raise PermissionDenied
+            return render(request,'candidate/extra.html')\
+            # return render(request,'candidate/end.html')
 
     def post(self, request, *args, **kwargs):
         form = self.form_class(self.request.POST)
